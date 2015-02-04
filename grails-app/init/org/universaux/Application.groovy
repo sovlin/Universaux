@@ -1,4 +1,4 @@
-package universaux
+package org.universaux
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration
