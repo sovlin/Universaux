@@ -5,7 +5,7 @@ class Character {
     String name_fr
     
     static constraints = {
-        name blanck:false, unique: true
-        name_fr nullable:true
+        //name blanck:false, unique: true
+        //name_fr nullable:true
     }
 }
