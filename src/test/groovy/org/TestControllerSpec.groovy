@@ -11,8 +11,7 @@ class TestControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["test"] = 'test'
     }
 
     void "Test the index action returns the correct model"() {
