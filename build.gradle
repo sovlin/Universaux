@@ -1,10 +1,12 @@
 buildscript {
     ext {
-      grailsVersion = project.properties['grailsVersion']
-    }  
+        grailsVersion = project.properties['grailsVersion']
+    }
     repositories {
         mavenLocal()
-        maven { url "http://repo.grails.org/grails/core" }
+        maven { url "http://repo.grails.org/grails/core/" }
+        maven { url "http://maven.springframework.org/release/" }
+        maven { url "http://repo1.maven.org/maven2/" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
@@ -29,8 +31,8 @@ targetCompatibility = 1.8
 
 
 ext {
-  grailsVersion = project.properties['grailsVersion']
-  gradleWrapperVersion = project.properties['gradleWrapperVersion']
+    grailsVersion = project.properties['grailsVersion']
+    gradleWrapperVersion = project.properties['gradleWrapperVersion']
 }
 
 version "0.0.1"
@@ -42,9 +44,13 @@ assets {
 }
 
 repositories {
-  mavenLocal()
-  maven { url "http://repo.grails.org/grails/core" }
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.grails.org/grails/core/" }
+    maven { url "http://maven.springframework.org/release/" }
+    maven { url "http://repo1.maven.org/maven2/" }
 }
+
 
 dependencyManagement {
     imports {
@@ -54,29 +60,41 @@ dependencyManagement {
 }
 
 dependencies {
-  compile 'org.springframework.boot:spring-boot-starter-logging'
-  compile("org.springframework.boot:spring-boot-starter-actuator")
-  compile "org.springframework.boot:spring-boot-autoconfigure"
-  compile "org.springframework.boot:spring-boot-starter-tomcat"
-  compile "org.grails:grails-dependencies"
-  compile "org.grails:grails-web-boot"
+    compile "org.springframework.boot:spring-boot-starter-batch"
+    //runtime "org.slf4j:jcl-over-slf4j:1.7.9"
+    //runtime "org.slf4j:slf4j-api:1.7.9"
+    //runtime "org.slf4j:slf4j-log4j12:1.7.9"
+    //runtime "org.slf4j:slf4j-jdk14"
 
-  compile "org.grails.plugins:hibernate"
-  compile "org.grails.plugins:cache"
-  compile "org.hibernate:hibernate-ehcache"
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-web-boot"
 
-  runtime "org.grails.plugins:asset-pipeline"
-  runtime "org.grails.plugins:scaffolding:3.0.0.BUILD-SNAPSHOT"
+    compile "org.grails.plugins:hibernate"
+    compile "org.grails.plugins:cache"
+    compile "org.hibernate:hibernate-ehcache"
 
-  testCompile "org.grails:grails-plugin-testing"
-  testCompile "org.grails.plugins:geb"
+    runtime "org.grails.plugins:asset-pipeline"
+    // runtime "org.grails.plugins:scaffolding:3.0.0.BUILD-SNAPSHOT"
+    runtime "org.grails.plugins:scaffolding"
 
-  // Note: It is recommended to update to a more robust driver (Chrome, Firefox etc.)
-  testRuntime 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0'
+    testCompile "org.grails:grails-plugin-testing"
+    testCompile "org.grails.plugins:geb"
 
-  console "org.grails:grails-console"
+    // Note: It is recommended to update to a more robust driver (Chrome, Firefox etc.)
+    testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0"
+
+    console "org.grails:grails-console"
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = gradleWrapperVersion
+    gradleVersion = gradleWrapperVersion
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
