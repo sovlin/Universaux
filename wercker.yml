@@ -10,3 +10,6 @@ build:
     - sovlin/grails:
         version: "3.0.0.M1"
         options: test-app
+    - sovlin/grails:
+        version: "3.0.0.M1"
+        options: batch
