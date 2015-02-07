@@ -11,5 +11,14 @@ build:
         version: "3.0.0.M1"
         options: test-app
     - sovlin/grails:
+        version: "BUILD-SNAPSHOT"
+        commit: f711ff27fdedf7e41c54fef79f5ffc9ea57bfcfa
+        options: compile
+    - sovlin/grails:
+        version: "BUILD-SNAPSHOT"
+        commit: 721dba7b99de0f092a228bf5ca226ffc82ef261f
+        depogit: "https://github.com/sovlin/grails-core.git"
+        options: compile
+    - sovlin/grails:
         version: "3.0.0.M1"
         options: batch
