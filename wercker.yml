@@ -2,11 +2,6 @@ box: sovlin/Grails-Last-Test
 build:
   steps:
     - sovlin/grails:
-        version: "3.0.0.M1"
-        options: compile
-    - sovlin/grails:
-        version: "3.0.0.M1"
-        options: war
-    - sovlin/grails:
-        version: "3.0.0.M1"
+        version: "BUILD-SNAPSHOT"
+        commit: 5c5e6a33dec476bc687b28a9551f8a8aa6f66ee9
         options: test-app
