@@ -3,11 +3,11 @@ org
 <html>
     <head>
         <meta name="layout" content="main">
-        <g:set var="entityName" value="${message(code: 'test.label', default: 'Test')}" />
+        <g:set var="entityName" value="${message(code: 'testController.label', default: 'TestController')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#edit-test" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <a href="#edit-testController" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -15,22 +15,22 @@ org
                 <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
             </ul>
         </div>
-        <div id="edit-test" class="content scaffold-edit" role="main">
+        <div id="edit-testController" class="content scaffold-edit" role="main">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${test}">
+            <g:hasErrors bean="${testController}">
             <ul class="errors" role="alert">
-                <g:eachError bean="${test}" var="error">
+                <g:eachError bean="${testController}" var="error">
                 <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${test}" method="PUT">
-                <g:hiddenField name="version" value="${test?.version}" />
+            <g:form resource="${testController}" method="PUT">
+                <g:hiddenField name="version" value="${testController?.version}" />
                 <fieldset class="form">
-                    <f:all bean="test"/>
+                    <f:all bean="testController"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
