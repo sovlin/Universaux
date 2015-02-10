@@ -3,5 +3,6 @@ build:
   steps:
     - sovlin/grails:
         version: "BUILD-SNAPSHOT"
-        commit: a1a7f9d407f401fd989144cf83d174541e869f9f
+        depogit: https://github.com/sovlin/grails-core.git
+        commit: 580d742d4cf7852bcf0079a9183e68514eb4a6e0
         options: test-app
