@@ -3,5 +3,5 @@ build:
   steps:
     - sovlin/grails:
         version: "BUILD-SNAPSHOT"
-        commit: 5c5e6a33dec476bc687b28a9551f8a8aa6f66ee9
+        commit: a1a7f9d407f401fd989144cf83d174541e869f9f
         options: test-app
